@@ -1,58 +1,191 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="hi">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Operation: Dil Ki Chori 💗</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Krishna's Secret Love Mission ❤️</title>
 <style>
-*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;padding:18px;font-family:system-ui,sans-serif;color:#71334b;background:linear-gradient(145deg,#fff8fc,#ffdce9)}
-.card{width:min(100%,440px);background:#fff;padding:27px 22px;border:2px solid #ffc1d8;border-radius:28px;text-align:center;box-shadow:0 16px 45px #b84b7722}
-.pill{display:inline-block;background:#ffe8f1;color:#b52b68;border-radius:99px;padding:7px 13px;font-size:.8rem;font-weight:800}
-.big{font-size:48px;margin:14px 0 4px}h1{color:#d63378;font-size:clamp(1.7rem,7vw,2.25rem);margin:10px 0}p{font-size:1.03rem;line-height:1.55}
-.actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:18px}
-button{border:0;border-radius:999px;padding:13px 18px;background:#e84b91;color:#fff;font-size:.98rem;font-weight:800;cursor:pointer}
-button.alt{background:#ffe3ef;color:#a13f68;border:1px solid #f7b2ce}
-#reaction{min-height:46px;margin-top:13px;color:#bd3976;font-weight:700}
-#barwrap{height:7px;background:#ffe8f1;border-radius:20px;margin-top:17px;overflow:hidden}#bar{height:100%;width:0;background:#e84b91;transition:width .3s}
-#heart-screen{display:none;position:fixed;inset:0;z-index:10;overflow:hidden;background:linear-gradient(145deg,#ffedf5,#ffc4dc);place-items:center}
-#heart-screen.show{display:grid}
-#heart-screen .message{position:relative;z-index:2;text-align:center;color:#c51f68;font-size:clamp(2rem,9vw,4rem);font-weight:900;text-shadow:0 2px 12px #fff; padding:20px}
-.floating-heart{position:absolute;bottom:-12vh;animation:float-up linear forwards;opacity:.95;user-select:none}
-@keyframes float-up{to{transform:translateY(-125vh) rotate(25deg);opacity:0}}
-.small{font-size:.82rem;color:#a56c83;margin-top:17px}
+*{box-sizing:border-box}
+body{
+ margin:0;min-height:100vh;display:grid;place-items:center;
+ padding:15px;font-family:system-ui,sans-serif;
+ background:linear-gradient(140deg,#ffe8f1,#ffc1dc,#fff0f6);
+ color:#803654;overflow-x:hidden
+}
+.card{
+ width:min(100%,440px);padding:25px 20px;
+ background:#fff;border:2px solid #ffbad5;
+ border-radius:28px;text-align:center;
+ box-shadow:0 15px 45px #b84b7730;position:relative;z-index:2
+}
+.pill{background:#ffe4ef;color:#d63378;padding:7px 13px;
+ border-radius:30px;font-size:12px;font-weight:800}
+.emoji{font-size:60px;margin:20px 0 8px;animation:beat 1.2s infinite}
+@keyframes beat{50%{transform:scale(1.12)}}
+h1{color:#d63378;font-size:27px}
+p{font-size:16px;line-height:1.7}
+.actions{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-top:20px}
+button{border:0;border-radius:30px;padding:13px 18px;
+ background:#e84393;color:white;font-weight:800;font-size:15px}
+button.alt{background:#ffe4ef;color:#b82d6b;border:1px solid #f5b5cf}
+#reaction{min-height:45px;color:#d63378;font-weight:bold;margin-top:14px}
+.progress{height:7px;background:#ffe4ef;border-radius:20px;margin-top:20px;overflow:hidden}
+#bar{height:100%;width:0;background:#e84393;transition:.4s}
+.foot{font-size:12px;margin-top:15px;color:#aa7188}
+#final{display:none;position:fixed;inset:0;z-index:10;
+ background:linear-gradient(145deg,#ffe7f1,#ffb4d0);
+ place-items:center;padding:18px;overflow:hidden}
+#final.show{display:grid}
+.finalbox{max-width:430px;text-align:center;position:relative;z-index:2}
+.finalbox h1{font-size:38px}
+.heart{position:absolute;bottom:-50px;animation:up linear forwards;pointer-events:none}
+@keyframes up{to{transform:translateY(-115vh) rotate(360deg);opacity:0}}
 </style>
 </head>
 <body>
-<main class="card">
- <span class="pill">🕵️ TOP SECRET MISSION</span>
- <div class="big" id="emoji">🚨</div>
- <h1 id="title">OPERATION: DIL KI CHORI</h1>
- <p id="desc">Tum par ek funny sa case hai! Investigation ke liye 3 chhote sawaal hain. Ready? 😂</p>
- <div id="reaction"></div>
- <div class="actions" id="actions"><button id="start">Mission shuru karo 😎</button></div>
- <div id="barwrap"><div id="bar"></div></div>
- <div class="small" id="foot">Warning: Hansi aa sakti hai 😂</div>
+
+<main class="card" id="game">
+<span class="pill">🕵️ TOP SECRET MISSION</span>
+<div class="emoji" id="emoji">💗</div>
+<h1 id="title">Operation: Krishna Ka Secret Love</h1>
+<p id="desc">Madam ji! Aapke khilaaf ek dilchasp case darj hua hai. 😂❤️ Investigation ke liye kuch sawaal hain. Ready?</p>
+<div id="reaction"></div>
+<div class="actions" id="actions">
+<button onclick="start()">Mission Shuru Karo 😎</button>
+</div>
+<div class="progress"><div id="bar"></div></div>
+<div class="foot" id="foot">Warning: Dil aur hasi dono sambhal kar! 😂</div>
 </main>
-<div id="heart-screen" aria-label="A screen full of hearts"><div class="message">💗💖💕💘<br>LOTS OF LOVE!<br>💞❤️💗</div></div>
+
+<div id="final">
+<div class="finalbox">
+<div style="font-size:65px">💗🌹💗</div>
+<h1>CASE SOLVED! 😂</h1>
+<p>Madam ji, ek confession karna tha...</p>
+<p>
+Aapki smile dekhkar mera dimaag hang ho jata hai. 🤭<br>
+Aapka message aaye toh dil 5G ki speed se dhadakta hai. 📱💓<br>
+Aur reply na aaye toh WhatsApp kholne ki bimari ho jaati hai! 😂
+</p>
+<h1>I LIKE YOU ❤️</h1>
+<p>
+Aap thodi naughty, thodi cute aur bahut special ho. 🥰
+</p>
+<p><b>With Love, Krishna 💌</b></p>
+<p>Ab batao Madam ji, aapka jawab kya hai? 🙈</p>
+<div class="actions">
+<button onclick="yes()">YES ❤️</button>
+<button class="alt" onclick="no()">NO 🙈</button>
+</div>
+<div id="answer"></div>
+</div>
+</div>
+
 <script>
 const questions=[
- {e:"🪞",t:"Sawaal 1: Sach bolna!",d:"Jab tum selfie leti ho, kitni photos ke baad perfect wali milti hai? 😂",a:["Pehli mein hi 😎","Gallery bhar jaati hai 🙈"],r:["Confidence level: CEO! 😂","Camera bhi overtime karta hoga! 📸"]},
- {e:"📱",t:"Sawaal 2: Ek secret!",d:"Agar kisi ka message aaye aur face par smile aa jaaye, toh?",a:["Normal si baat hai 😇","Naam nahi bataungi! 🤭"],r:["Achha ji, bahut normal! 😏","Oho! Kuch toh gadbad hai! 👀"]},
- {e:"💗",t:"Sawaal 3: Final investigation!",d:"Agar koi kahe ki tum uske liye special ho, toh?",a:["Awww, sweet! 🥰","Pehle proof dikhao! 😂"],r:["Dil pighal gaya lagta hai! 💗","Wah! CID officer nikli! 🔍"]}
+{
+e:"📸",t:"Sawaal 1: Selfie Queen",
+d:"Madam ji, selfie lete waqt kitni photos leti ho?",
+a:["Bas 2-3 😂","Gallery bhar deti hoon 🙈"],
+r:["Itni simplicity! Camera khush hoga 😂","Gallery ko bhi storage chahiye madam! 🤣"]
+},
+{
+e:"📱",t:"Sawaal 2: Secret Message",
+d:"Agar kisi special person ka message aaye toh?",
+a:["Turant reply 🥰","Pehle attitude dikhaungi 😎"],
+r:["Oho! Dil toh bahut soft hai! 💗","Madam ka attitude bhi premium hai! 😂"]
+},
+{
+e:"🌹",t:"Sawaal 3: Romantic Test",
+d:"Koi tumhe rose de toh?",
+a:["Awww! Thank you 🌹","Chocolate bhi chahiye 🍫"],
+r:["Kitni sweet ho! ❤️","Rose ke saath chocolate bhi! Business mind! 😂"]
+},
+{
+e:"💓",t:"Sawaal 4: Final Test",
+d:"Agar Krishna kahe ki tum bahut special ho toh?",
+a:["Awww! 🥰","Proof dikhao pehle! 🔍"],
+r:["Ab toh Krishna sharma gaya! 🙈","Madam CID officer nikli! 😂"]
+}
 ];
-let n=0;
+
+let index=0;
 const $=id=>document.getElementById(id);
-function showQuestion(){
- const q=questions[n];$('emoji').textContent=q.e;$('title').textContent=q.t;$('desc').textContent=q.d;$('reaction').textContent='';$('actions').innerHTML='';
- q.a.forEach((label,i)=>{let b=document.createElement('button');b.textContent=label;if(i)b.className='alt';b.onclick=()=>{ $('reaction').textContent=q.r[i];$('actions').innerHTML='';let next=document.createElement('button');next.textContent=n===2?'Raaz kholo 👀':'Agla sawaal ➜';next.onclick=()=>{n++;$('bar').style.width=(n/3*100)+'%';if(n<3)showQuestion();else reveal()};$('actions').appendChild(next)};$('actions').appendChild(b)});
- $('foot').textContent=`Investigation progress: ${n+1}/3 🔎`;
+
+function start(){
+ index=0;
+ $("bar").style.width="0%";
+ show();
 }
+
+function show(){
+ let q=questions[index];
+ $("emoji").textContent=q.e;
+ $("title").textContent=q.t;
+ $("desc").textContent=q.d;
+ $("reaction").textContent="";
+ $("actions").innerHTML="";
+
+ q.a.forEach((a,i)=>{
+  let b=document.createElement("button");
+  b.textContent=a;
+  if(i)b.className="alt";
+
+  b.onclick=()=>{
+   $("reaction").textContent=q.r[i];
+   $("actions").innerHTML="";
+   let next=document.createElement("button");
+   next.textContent=index===3?"Final Raaz Kholo 💌":"Agla Sawaal ➜";
+   next.onclick=()=>{
+    index++;
+    $("bar").style.width=(index/4*100)+"%";
+    if(index<4)show();
+    else reveal();
+   };
+   $("actions").appendChild(next);
+  };
+  $("actions").appendChild(b);
+ });
+ $("foot").textContent="Mission Progress: "+(index+1)+"/4 🔎";
+}
+
 function reveal(){
- $('emoji').textContent='🔍💌';$('title').textContent='CASE SOLVED!';$('desc').textContent='Investigation ka result: koi hai jise tum bahut pasand ho... naam abhi secret hai! 🙈 Aur woh kehna chahta hai...';$('reaction').innerHTML='<h1 style="font-size:2rem">I LOVE YOU ❤️</h1>';$('actions').innerHTML='';
- let b=document.createElement('button');b.textContent='I LOVE YOU TOO 😍';b.onclick=()=>{document.querySelector('main').style.display='none';const screen=$('heart-screen');screen.classList.add('show');for(let i=0;i<90;i++){const h=document.createElement('span');h.className='floating-heart';h.textContent=['❤️','💖','💕','💗','💘','💞'][i%6];h.style.left=(Math.random()*100)+'%';h.style.fontSize=(20+Math.random()*34)+'px';h.style.animationDuration=(3+Math.random()*5)+'s';h.style.animationDelay=(Math.random()*2)+'s';screen.appendChild(h)}};$('actions').appendChild(b);
- $('bar').style.width='100%';$('foot').textContent='Ab jawab dena tumhari marzi hai. 🌷';
+ $("emoji").textContent="💌";
+ $("title").textContent="Secret Message!";
+ $("desc").textContent="Madam ji, aapke liye Krishna ki taraf se ek special message hai! ❤️";
+ $("reaction").textContent="Thoda sharmaana allowed hai! 😂";
+ $("actions").innerHTML="";
+ let b=document.createElement("button");
+ b.textContent="Love Letter Padho 💗";
+ b.onclick=()=>{
+  $("game").style.display="none";
+  $("final").classList.add("show");
+  hearts();
+ };
+ $("actions").appendChild(b);
+ $("bar").style.width="100%";
 }
-$('start').onclick=()=>{n=0;$('bar').style.width='0';showQuestion()};
+
+function hearts(){
+ for(let i=0;i<65;i++){
+  let h=document.createElement("span");
+  h.className="heart";
+  h.textContent=["❤️","💗","💕","💖","💘"][i%5];
+  h.style.left=Math.random()*100+"%";
+  h.style.fontSize=(20+Math.random()*30)+"px";
+  h.style.animationDuration=(4+Math.random()*5)+"s";
+  h.style.animationDelay=Math.random()*3+"s";
+  $("final").appendChild(h);
+ }
+}
+
+function yes(){
+ $("answer").innerHTML="<h2 style='color:#d63378'>YAYYYYY! 🥹❤️</h2><p>Krishna ki toh lottery lag gayi! 😂💗</p><p>Ab smile karna mat bhoolna! 🌹</p>";
+}
+
+function no(){
+ $("answer").innerHTML="<h2 style='color:#d63378'>Koi baat nahi Madam! 😂</h2><p>Krishna ka dil strong hai, aur aapki marzi sabse important hai. 🌷</p><p>Friendship ka option toh hamesha hai! 😊</p>";
+}
 </script>
 </body>
 </html>
