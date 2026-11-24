@@ -3,58 +3,46 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>A Little Secret 💌</title>
+<title>Secret Test 😂💗</title>
 <style>
-  * { box-sizing: border-box; }
-  body {
-    margin: 0; min-height: 100vh; display: grid; place-items: center;
-    padding: 24px; font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-    color: #71334b;
-    background: radial-gradient(circle at top, #fff8fc, #ffe3ef 55%, #ffd1e3);
-  }
-  .card {
-    width: min(100%, 430px); padding: 34px 25px; text-align: center;
-    background: rgba(255,255,255,.92); border: 2px solid #ffc1d8;
-    border-radius: 30px; box-shadow: 0 18px 55px rgba(184,75,119,.16);
-  }
-  .heart { font-size: 42px; margin-bottom: 8px; }
-  h1 { margin: 8px 0 12px; color: #d63378; font-size: clamp(2rem, 8vw, 2.7rem); }
-  p { font-size: 1.08rem; line-height: 1.55; }
-  .buttons { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; margin-top: 26px; }
-  button {
-    border: 0; border-radius: 999px; padding: 13px 27px; min-width: 112px;
-    font-size: 1.05rem; font-weight: 700; cursor: pointer;
-    transition: transform .15s ease, box-shadow .15s ease;
-  }
-  button:active { transform: scale(.97); }
-  #yes { color: white; background: #e84b91; box-shadow: 0 7px 16px #e84b9144; }
-  #no { color: #a13f68; background: #ffe3ef; border: 1px solid #f7b2ce; }
-  #result { min-height: 105px; margin-top: 24px; }
-  #result .emoji { font-size: 48px; display: block; margin-bottom: 6px; }
-  .small { color: #a56c83; font-size: .88rem; margin-top: 22px; }
+*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;padding:22px;font-family:system-ui,sans-serif;color:#74334f;background:linear-gradient(145deg,#fff8fc,#ffdce9)}
+.card{width:min(100%,440px);padding:30px 23px;text-align:center;background:#fff;border:2px solid #ffc1d8;border-radius:28px;box-shadow:0 16px 42px #b84b771f}
+.pill{display:inline-block;padding:6px 12px;border-radius:99px;background:#ffe8f1;color:#b52b68;font-weight:700;font-size:.82rem}
+h1{color:#d63378;font-size:clamp(1.8rem,8vw,2.4rem);margin:15px 0 10px}p{font-size:1.05rem;line-height:1.55}
+button{border:0;border-radius:999px;padding:13px 22px;margin:7px;background:#e84b91;color:white;font-size:1rem;font-weight:800;cursor:pointer}
+button.alt{background:#ffe3ef;color:#a13f68;border:1px solid #f7b2ce}
+#answers{display:flex;justify-content:center;flex-wrap:wrap;margin-top:20px}
+#progress{color:#a56c83;font-size:.85rem;margin-top:20px}
 </style>
 </head>
 <body>
-  <main class="card">
-    <div class="heart">💌</div>
-    <p>A tiny message for you...</p>
-    <h1>I LOVE YOU ❤️</h1>
-    <p>Will you make this little secret admirer smile?</p>
-    <div class="buttons">
-      <button id="yes" type="button">YES 💖</button>
-      <button id="no" type="button">NO 🙈</button>
-    </div>
-    <section id="result" aria-live="polite"></section>
-    <p class="small">A little surprise, with no pressure. Your choice matters. 🌷</p>
-  </main>
+<main class="card">
+ <span class="pill">😂 CHHOTA SA TEST</span>
+ <div style="font-size:44px;margin-top:12px" id="emoji">🤔</div>
+ <h1 id="heading">Ek chhota sa test hai!</h1>
+ <p id="question">Ready ho? Zyada sochna mat. 😜</p>
+ <div id="answers"><button id="start">Chalo shuru karein 😁</button></div>
+ <div id="progress">Secret surprise loading... 💗</div>
+</main>
 <script>
-  const result = document.getElementById('result');
-  document.getElementById('no').addEventListener('click', () => {
-    result.innerHTML = '<span class="emoji">🥺💔</span><strong>Oh no...</strong><p>That’s okay! Thanks for being honest. You can choose whatever feels right. 🌷</p>';
-  });
-  document.getElementById('yes').addEventListener('click', () => {
-    result.innerHTML = '<span class="emoji">🥳💗✨</span><strong>Yayyy!</strong><p>You just made someone’s day! Sending you a pocket full of happiness. 💕</p>';
-  });
+const steps=[
+ {emoji:"😎",heading:"Question 1",question:"Kya tum khud ko cute maanti ho? 🙈",answers:["Haan 😎","Bilkul nahi 😂"]},
+ {emoji:"🎁",heading:"Question 2",question:"Tumhe surprises pasand hain?",answers:["Bahut! 💗","Kabhi-kabhi 😜"]},
+ {emoji:"🕵️",heading:"Question 3",question:"Agar koi secret admirer ho to?",answers:["Kaun hai woh? 👀","Pehle naam batao 😂"]}
+];
+let step=0;
+const emoji=document.getElementById('emoji'),heading=document.getElementById('heading'),question=document.getElementById('question'),answers=document.getElementById('answers'),progress=document.getElementById('progress');
+function showStep(){
+ const s=steps[step];emoji.textContent=s.emoji;heading.textContent=s.heading;question.textContent=s.question;answers.innerHTML='';
+ s.answers.forEach((label,i)=>{const b=document.createElement('button');b.textContent=label;if(i===1)b.className='alt';b.onclick=()=>{step++;step<steps.length?showStep():showFinal()};answers.appendChild(b)});
+ progress.textContent=`Question ${step+1} of 3 · Bas ek minute 😂`;
+}
+function showFinal(){
+ emoji.textContent='💌';heading.textContent='I LOVE YOU ❤️';question.textContent='Bas, ab dil ki baat keh di... 🙈';answers.innerHTML='';
+ const b=document.createElement('button');b.textContent='I LOVE YOU TOO 😍';b.onclick=()=>{emoji.textContent='🥳💗';heading.textContent='YAYYYY!';question.textContent='Aaj kisi ka din ban gaya! 😂❤️';answers.innerHTML='';progress.textContent='Sending lots of smiles 🌸'};answers.appendChild(b);
+ progress.textContent='Secret revealed 🤫';
+}
+document.getElementById('start').onclick=showStep;
 </script>
 </body>
 </html>
