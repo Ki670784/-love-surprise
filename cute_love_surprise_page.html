@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A Little Secret 💌</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100vh; display: grid; place-items: center;
+    padding: 24px; font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    color: #71334b;
+    background: radial-gradient(circle at top, #fff8fc, #ffe3ef 55%, #ffd1e3);
+  }
+  .card {
+    width: min(100%, 430px); padding: 34px 25px; text-align: center;
+    background: rgba(255,255,255,.92); border: 2px solid #ffc1d8;
+    border-radius: 30px; box-shadow: 0 18px 55px rgba(184,75,119,.16);
+  }
+  .heart { font-size: 42px; margin-bottom: 8px; }
+  h1 { margin: 8px 0 12px; color: #d63378; font-size: clamp(2rem, 8vw, 2.7rem); }
+  p { font-size: 1.08rem; line-height: 1.55; }
+  .buttons { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; margin-top: 26px; }
+  button {
+    border: 0; border-radius: 999px; padding: 13px 27px; min-width: 112px;
+    font-size: 1.05rem; font-weight: 700; cursor: pointer;
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  button:active { transform: scale(.97); }
+  #yes { color: white; background: #e84b91; box-shadow: 0 7px 16px #e84b9144; }
+  #no { color: #a13f68; background: #ffe3ef; border: 1px solid #f7b2ce; }
+  #result { min-height: 105px; margin-top: 24px; }
+  #result .emoji { font-size: 48px; display: block; margin-bottom: 6px; }
+  .small { color: #a56c83; font-size: .88rem; margin-top: 22px; }
+</style>
+</head>
+<body>
+  <main class="card">
+    <div class="heart">💌</div>
+    <p>A tiny message for you...</p>
+    <h1>I LOVE YOU ❤️</h1>
+    <p>Will you make this little secret admirer smile?</p>
+    <div class="buttons">
+      <button id="yes" type="button">YES 💖</button>
+      <button id="no" type="button">NO 🙈</button>
+    </div>
+    <section id="result" aria-live="polite"></section>
+    <p class="small">A little surprise, with no pressure. Your choice matters. 🌷</p>
+  </main>
+<script>
+  const result = document.getElementById('result');
+  document.getElementById('no').addEventListener('click', () => {
+    result.innerHTML = '<span class="emoji">🥺💔</span><strong>Oh no...</strong><p>That’s okay! Thanks for being honest. You can choose whatever feels right. 🌷</p>';
+  });
+  document.getElementById('yes').addEventListener('click', () => {
+    result.innerHTML = '<span class="emoji">🥳💗✨</span><strong>Yayyy!</strong><p>You just made someone’s day! Sending you a pocket full of happiness. 💕</p>';
+  });
+</script>
+</body>
+</html>
