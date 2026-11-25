@@ -4,471 +4,371 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Krishna's Secret Love Mission ❤️</title>
+<title>Magical Birthday Surprise ❤️</title>
 
 <style>
-*{box-sizing:border-box}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
 body{
- margin:0;
- min-height:100vh;
- display:grid;
- place-items:center;
- padding:15px;
- font-family:system-ui,sans-serif;
- background:linear-gradient(140deg,#ffe8f1,#ffc1dc,#fff0f6);
- color:#803654;
- overflow-x:hidden;
+  min-height:100vh;
+  font-family:Georgia,serif;
+  background:linear-gradient(135deg,#16002e,#58004f,#17002c);
+  color:white;
+  text-align:center;
+  overflow-x:hidden;
 }
 
-.card{
- width:min(100%,440px);
- padding:25px 20px;
- background:#fff;
- border:2px solid #ffbad5;
- border-radius:28px;
- text-align:center;
- box-shadow:0 15px 45px #b84b7730;
- position:relative;
- z-index:2;
-}
-
-.pill{
- background:#ffe4ef;
- color:#d63378;
- padding:7px 13px;
- border-radius:30px;
- font-size:12px;
- font-weight:800;
-}
-
-.emoji{
- font-size:60px;
- margin:20px 0 8px;
- animation:beat 1.2s infinite;
-}
-
-@keyframes beat{
- 50%{transform:scale(1.12)}
+.screen{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:25px 18px;
+  position:relative;
+  z-index:2;
 }
 
 h1{
- color:#d63378;
- font-size:27px;
+  font-size:35px;
+  color:#ffb9e6;
+  text-shadow:0 0 20px #ff35c8;
+  margin-bottom:20px;
 }
 
 p{
- font-size:16px;
- line-height:1.7;
-}
-
-.actions{
- display:flex;
- justify-content:center;
- flex-wrap:wrap;
- gap:10px;
- margin-top:20px;
-}
-
-button{
- border:0;
- border-radius:30px;
- padding:13px 18px;
- background:#e84393;
- color:white;
- font-weight:800;
- font-size:15px;
- cursor:pointer;
- box-shadow:0 5px 15px #e8439340;
-}
-
-button.alt{
- background:#ffe4ef;
- color:#b82d6b;
- border:1px solid #f5b5cf;
-}
-
-button:active{
- transform:scale(.95);
-}
-
-#reaction{
- min-height:45px;
- color:#d63378;
- font-weight:bold;
- margin-top:14px;
-}
-
-.progress{
- height:7px;
- background:#ffe4ef;
- border-radius:20px;
- margin-top:20px;
- overflow:hidden;
-}
-
-#bar{
- height:100%;
- width:0;
- background:#e84393;
- transition:.4s;
-}
-
-.foot{
- font-size:12px;
- margin-top:15px;
- color:#aa7188;
-}
-
-#final{
- display:none;
- position:fixed;
- inset:0;
- z-index:10;
- background:linear-gradient(145deg,#ffe7f1,#ffb4d0);
- place-items:center;
- padding:18px;
- overflow:hidden;
-}
-
-#final.show{
- display:grid;
-}
-
-.finalbox{
- max-width:430px;
- text-align:center;
- position:relative;
- z-index:2;
-}
-
-.finalbox h1{
- font-size:38px;
+  font-size:18px;
+  line-height:1.7;
 }
 
 .heart{
- position:absolute;
- bottom:-50px;
- animation:up linear forwards;
- pointer-events:none;
+  position:fixed;
+  bottom:-30px;
+  color:#ff69b4;
+  animation:float 7s linear infinite;
+  pointer-events:none;
+  z-index:1;
 }
 
-@keyframes up{
- to{
-  transform:translateY(-115vh) rotate(360deg);
-  opacity:0;
- }
+@keyframes float{
+  to{
+    transform:translateY(-110vh) rotate(360deg);
+    opacity:0;
+  }
 }
 
-.love-btn{
- font-size:17px;
- padding:16px 25px;
- background:linear-gradient(45deg,#e84393,#ff579b);
+button{
+  background:linear-gradient(45deg,#ff168c,#ff65c5);
+  color:white;
+  border:none;
+  border-radius:35px;
+  padding:15px 28px;
+  font-size:17px;
+  margin-top:25px;
+  box-shadow:0 0 25px #ff2ca5;
+  cursor:pointer;
 }
 
+button:active{
+  transform:scale(.95);
+}
+
+.gift{
+  font-size:110px;
+  cursor:pointer;
+  animation:bounce 1.5s infinite;
+  filter:drop-shadow(0 0 20px pink);
+}
+
+@keyframes bounce{
+  50%{transform:translateY(-15px) rotate(5deg);}
+}
+
+.hidden{
+  display:none !important;
+}
+
+.glow{
+  color:#ff9cde;
+  text-shadow:0 0 15px #ff27ae;
+}
+
+.cake{
+  font-size:100px;
+  margin:25px;
+  animation:bounce 2s infinite;
+}
+
+.card{
+  background:rgba(255,255,255,.09);
+  border:1px solid rgba(255,180,230,.5);
+  border-radius:25px;
+  padding:25px 20px;
+  max-width:420px;
+  width:100%;
+  box-shadow:0 0 30px rgba(255,0,170,.25);
+  backdrop-filter:blur(10px);
+}
+
+.small{
+  color:#ffd0ec;
+  font-size:15px;
+}
+
+footer{
+  margin-top:30px;
+  color:#ffaddf;
+  font-size:18px;
+}
+
+#confetti{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:5;
+}
 </style>
 </head>
 
 <body>
 
-<main class="card" id="game">
+<canvas id="confetti"></canvas>
 
-<span class="pill">🕵️ TOP SECRET MISSION</span>
+<!-- SCREEN 1 -->
 
-<div class="emoji" id="emoji">💗</div>
+<section class="screen" id="first">
 
-<h1 id="title">Operation: Krishna Ka Secret Love</h1>
-
-<p id="desc">
-Madam ji! Aapke khilaaf ek dilchasp case darj hua hai. 😂❤️
-Investigation ke liye kuch sawaal hain.
-Ready?
-</p>
-
-<div id="reaction"></div>
-
-<div class="actions" id="actions">
-<button onclick="start()">Mission Shuru Karo 😎</button>
-</div>
-
-<div class="progress">
-<div id="bar"></div>
-</div>
-
-<div class="foot" id="foot">
-Warning: Dil aur hasi dono sambhal kar! 😂
-</div>
-
-</main>
-
-
-<div id="final">
-
-<div class="finalbox">
-
-<div style="font-size:65px">💗🌹💗</div>
-
-<h1>CASE SOLVED! 😂</h1>
-
-<p>Madam ji, ek confession karna tha...</p>
+<h1>Hey Beautiful! 💗</h1>
 
 <p>
-Aapki smile dekhkar mera dimaag hang ho jata hai. 🤭<br><br>
-
-Aapka Instagram DM aaye toh dil 5G ki speed se dhadakta hai. 📸💓<br><br>
-
-Aur reply na aaye toh Instagram baar-baar check karne ki bimari ho jaati hai! 😂
+आज तुम्हारे लिए कुछ बहुत खास है...<br>
+लेकिन पहले एक छोटा सा काम करना होगा।
 </p>
 
-<h1>I LIKE YOU ❤️</h1>
+<div class="gift" onclick="openGift()">🎁</div>
+
+<p class="glow">इस Gift को खोलकर देखो ❤️</p>
+
+<button onclick="openGift()">Open Your Surprise ✨</button>
+
+</section>
+
+
+<!-- SCREEN 2 -->
+
+<section class="screen hidden" id="second">
+
+<h1>Surpriseeeee! 😍</h1>
+
+<div class="cake">🎂</div>
+
+<h1 class="glow">Happy Birthday! ❤️</h1>
+
+<div class="card">
 
 <p>
-Aap thodi naughty, thodi cute aur bahut special ho. 🥰
+आज का दिन बहुत खास है,<br>
+क्योंकि आज एक प्यारा सा इंसान<br>
+इस दुनिया में आया था। 🥹💗
 </p>
+
+<br>
 
 <p>
-Kehne ko toh bahut kuch hai, lekin shabdon mein sab kehna mushkil hai. 💗
+तुम्हारी जिंदगी हमेशा खुशियों से भरी रहे,<br>
+तुम्हारी हर ख्वाहिश पूरी हो,<br>
+और तुम्हारी मुस्कान कभी कम ना हो। ✨
 </p>
 
-<p><b>With Love, Krishna 💌</b></p>
+</div>
+
+<button onclick="nextPage()">एक और Surprise है 💝</button>
+
+</section>
+
+
+<!-- SCREEN 3 -->
+
+<section class="screen hidden" id="third">
+
+<h1>एक छोटी सी बात... 💌</h1>
+
+<div class="card">
 
 <p>
-Ab batao Madam ji... kya tum bhi mujhse pyaar karti ho? 🙈
+कुछ लोग हमारी जिंदगी में<br>
+बहुत खास जगह बना लेते हैं। ❤️
 </p>
 
-<div class="actions">
-<button class="love-btn" onclick="yes()">
-I LOVE YOU TOO 😍❤️
-</button>
+<br>
+
+<p>
+उनकी खुशी देखकर खुशी मिलती है,<br>
+उनकी मुस्कान देखकर दिन अच्छा हो जाता है। 🥰
+</p>
+
+<br>
+
+<p class="glow">
+बस हमेशा ऐसे ही मुस्कुराते रहना। 💗
+</p>
+
 </div>
 
-<div id="answer"></div>
+<button onclick="lastPage()">Last Surprise ❤️</button>
+
+</section>
+
+
+<!-- SCREEN 4 -->
+
+<section class="screen hidden" id="last">
+
+<h1>Stay Happy Always! 💖</h1>
+
+<div style="font-size:85px;margin:20px">
+💐
+</div>
+
+<div class="card">
+
+<h1 style="font-size:29px">
+Happy Birthday! 🎂
+</h1>
+
+<p>
+तुम्हारे आने वाला हर साल<br>
+पिछले साल से ज्यादा खूबसूरत हो। 🌸
+</p>
+
+<br>
+
+<p>
+ढेर सारी खुशियां,<br>
+ढेर सारा प्यार और<br>
+अनगिनत खूबसूरत यादें तुम्हारे नाम। ❤️
+</p>
+
+<br>
+
+<h1 class="glow" style="font-size:30px">
+With Love,<br>
+Varshuu ❤️
+</h1>
 
 </div>
-</div>
+
+<p style="margin-top:25px">
+Made with 💗 just for you
+</p>
+
+</section>
 
 
 <script>
 
-const questions=[
+// Floating Hearts
 
-{
-e:"📸",
-t:"Sawaal 1: Selfie Queen",
-d:"Madam ji, selfie lete waqt kitni photos leti ho?",
-a:["Bas 2-3 😂","Gallery bhar deti hoon 🙈"],
-r:[
-"Itni simplicity! Camera khush hoga 😂",
-"Gallery ko bhi storage chahiye madam! 🤣"
-]
-},
+function createHeart(){
+  const heart=document.createElement("div");
+  heart.className="heart";
+  heart.innerHTML=["❤️","💗","💕","💖","✨"][Math.floor(Math.random()*5)];
+  heart.style.left=Math.random()*100+"%";
+  heart.style.fontSize=(15+Math.random()*25)+"px";
+  heart.style.animationDuration=(4+Math.random()*5)+"s";
+  document.body.appendChild(heart);
 
-{
-e:"💌",
-t:"Sawaal 2: Instagram Secret",
-d:"Agar Instagram par kisi special person ka DM aaye toh?",
-a:["Turant Seen 😂","Reply karne mein attitude 😎"],
-r:[
-"Oho! Instagram par koi special hai! 💗",
-"Madam ka attitude toh verified hai! 😂"
-]
-},
-
-{
-e:"🌹",
-t:"Sawaal 3: Romantic Test",
-d:"Koi tumhe rose de toh?",
-a:["Awww! Thank you 🌹","Chocolate bhi chahiye 🍫"],
-r:[
-"Kitni sweet ho! ❤️",
-"Rose ke saath chocolate bhi! Business mind! 😂"
-]
-},
-
-{
-e:"💓",
-t:"Sawaal 4: Final Test",
-d:"Agar Krishna kahe ki tum bahut special ho toh?",
-a:["Awww! 🥰","Proof dikhao pehle! 🔍"],
-r:[
-"Ab toh Krishna sharma gaya! 🙈",
-"Madam CID officer nikli! 😂"
-]
+  setTimeout(()=>heart.remove(),9000);
 }
 
-];
-
-let index=0;
-
-const $=id=>document.getElementById(id);
+setInterval(createHeart,350);
 
 
-function start(){
+// Screen Change
 
- index=0;
+function showScreen(id){
+  document.querySelectorAll(".screen").forEach(s=>{
+    s.classList.add("hidden");
+  });
+  document.getElementById(id).classList.remove("hidden");
+  window.scrollTo(0,0);
+}
 
- $("bar").style.width="0%";
+function openGift(){
+  showScreen("second");
+  startConfetti();
+}
 
- show();
+function nextPage(){
+  showScreen("third");
+}
 
+function lastPage(){
+  showScreen("last");
+  startConfetti();
 }
 
 
-function show(){
+// Confetti Animation
 
- let q=questions[index];
+function startConfetti(){
+  const canvas=document.getElementById("confetti");
+  const ctx=canvas.getContext("2d");
 
- $("emoji").textContent=q.e;
- $("title").textContent=q.t;
- $("desc").textContent=q.d;
- $("reaction").textContent="";
- $("actions").innerHTML="";
+  canvas.width=window.innerWidth;
+  canvas.height=window.innerHeight;
 
- q.a.forEach((a,i)=>{
+  let pieces=[];
 
-  let b=document.createElement("button");
+  for(let i=0;i<130;i++){
+    pieces.push({
+      x:Math.random()*canvas.width,
+      y:Math.random()*-canvas.height,
+      size:Math.random()*8+4,
+      speed:Math.random()*4+2,
+      color:["#ff69b4","#ffd700","#ffffff","#bb77ff"][Math.floor(Math.random()*4)]
+    });
+  }
 
-  b.textContent=a;
+  let frames=0;
 
-  if(i)b.className="alt";
+  function animate(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
 
-  b.onclick=()=>{
+    pieces.forEach(p=>{
+      ctx.fillStyle=p.color;
+      ctx.fillRect(p.x,p.y,p.size,p.size);
 
-   $("reaction").textContent=q.r[i];
+      p.y+=p.speed;
+      p.x+=Math.sin(p.y/20);
 
-   $("actions").innerHTML="";
+      if(p.y>canvas.height){
+        p.y=-10;
+        p.x=Math.random()*canvas.width;
+      }
+    });
 
-   let next=document.createElement("button");
+    frames++;
 
-   next.textContent=
-   index===3?"Final Raaz Kholo 💌":"Agla Sawaal ➜";
-
-   next.onclick=()=>{
-
-    index++;
-
-    $("bar").style.width=(index/4*100)+"%";
-
-    if(index<4){
-     show();
+    if(frames<250){
+      requestAnimationFrame(animate);
     }else{
-     reveal();
+      ctx.clearRect(0,0,canvas.width,canvas.height);
     }
+  }
 
-   };
-
-   $("actions").appendChild(next);
-
-  };
-
-  $("actions").appendChild(b);
-
- });
-
- $("foot").textContent=
- "Mission Progress: "+(index+1)+"/4 🔎";
-
+  animate();
 }
 
-
-function reveal(){
-
- $("emoji").textContent="💌";
-
- $("title").textContent="Secret Message!";
-
- $("desc").textContent=
- "Madam ji, aapke liye Krishna ki taraf se ek special message hai! ❤️";
-
- $("reaction").textContent=
- "Thoda sharmaana allowed hai! 😂";
-
- $("actions").innerHTML="";
-
- let b=document.createElement("button");
-
- b.textContent="Love Letter Padho 💗";
-
- b.onclick=()=>{
-
-  $("game").style.display="none";
-
-  $("final").classList.add("show");
-
-  hearts();
-
- };
-
- $("actions").appendChild(b);
-
- $("bar").style.width="100%";
-
- $("foot").textContent="Made with love by Krishna 🌹";
-
-}
-
-
-function hearts(){
-
- for(let i=0;i<65;i++){
-
-  let h=document.createElement("span");
-
-  h.className="heart";
-
-  h.textContent=["❤️","💗","💕","💖","💘"][i%5];
-
-  h.style.left=Math.random()*100+"%";
-
-  h.style.fontSize=
-  (20+Math.random()*30)+"px";
-
-  h.style.animationDuration=
-  (4+Math.random()*5)+"s";
-
-  h.style.animationDelay=
-  Math.random()*3+"s";
-
-  $("final").appendChild(h);
-
- }
-
-}
-
-
-function yes(){
-
- $("answer").innerHTML=`
- <h2 style="color:#d63378">YAYYYYY! 🥹❤️</h2>
-
- <p>Krishna ki toh lottery lag gayi! 😂💗</p>
-
- <h2>FOREVER SPECIAL 💞</h2>
-
- <p>Ab ek pyari si smile ho jaaye! 🌹</p>
-
- <h2>LOTS OF LOVE! 💖</h2>
- `;
-
- for(let i=0;i<35;i++){
-
-  let h=document.createElement("span");
-
-  h.className="heart";
-
-  h.textContent=["❤️","💖","💗","💕"][i%4];
-
-  h.style.left=Math.random()*100+"%";
-
-  h.style.fontSize=(20+Math.random()*30)+"px";
-
-  h.style.animationDuration=(3+Math.random()*4)+"s";
-
-  $("final").appendChild(h);
-
- }
-
-}
+window.addEventListener("resize",()=>{
+  const canvas=document.getElementById("confetti");
+  canvas.width=window.innerWidth;
+  canvas.height=window.innerHeight;
+});
 
 </script>
 
